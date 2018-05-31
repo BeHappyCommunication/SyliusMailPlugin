@@ -1,0 +1,30 @@
+{% extends 'SyliusAdminBundle::layout.html.twig' %}
+
+{% form_theme form '@SyliusAdmin/Form/theme.html.twig' %}
+
+{% block content %}
+    <div class="ui breadcrumb">
+        <a href="{{ path('sylius_admin_dashboard') }}" class="section">{{ 'sylius.ui.administration'|trans }}</a>
+        <i class="right chevron icon divider"></i>
+        <a href="{{ path('behappy_mail_plugin_mail_configuration_index') }}"
+           class="section">{{ 'behappy_mail_plugin.ui.mail_configurations'|trans }}</a>
+        <i class="right chevron icon divider"></i>
+        <div class="active section">{{ 'behappy_mail_plugin.ui.check_mail'|trans }}</div>
+    </div>
+    <div class="ui segment">
+        {{ form_start(form, { 'attr': {'class': 'ui loadable form', 'novalidate': 'novalidate'}}) }}
+
+        {{ form_widget(form) }}
+
+        <div class="ui basic segment">
+            <div class="ui buttons">
+                <button class="ui labeled icon primary button" type="submit"><i
+                            class="send icon"></i> {{ 'sylius.ui.send'|trans }}</button>
+                <a href="{{ path('behappy_mail_plugin_mail_configuration_index') }}"
+                   class="ui button">{{ 'sylius.ui.cancel'|trans }}</a>
+            </div>
+        </div>
+
+        {{ form_end(form) }}
+    </div>
+{% endblock %}

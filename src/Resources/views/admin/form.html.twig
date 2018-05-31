@@ -1,0 +1,20 @@
+{{ form_row(form.type) }}
+
+{{ form_row(form.senderMail) }}
+{{ form_row(form.senderName) }}
+{{ form_row(form.replyToMail) }}
+<div id="behappy_mail_plugin_smtp">
+    {{ form_row(form.smtpHost) }}
+    {{ form_row(form.smtpPort) }}
+    {{ form_row(form.smtpUser) }}
+    {{ form_row(form.smtpPassword) }}
+    {{ form_row(form.encryption) }}
+    <br/>
+</div>
+{{ form_row(form.dkim) }}
+<div id="behappy_mail_plugin_dkim">
+    {{ form_row(form.dkimDomain) }}
+    {{ form_row(form.dkimSelector) }}
+    {{ form_row(form.dkimKey) }}
+</div>
+{{ form_widget(form) }}

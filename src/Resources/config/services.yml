@@ -1,0 +1,35 @@
+services:
+    behappy.mail_plugin.admin.menu_builder:
+        class: BeHappy\SyliusMailPlugin\Menu\AdminMenuListener
+        tags:
+            - { name: kernel.event_listener, event: sylius.menu.admin.main, method: addAdminMenuItems }
+
+    behappy.mail_plugin.form.type.mail_configuration:
+        class: BeHappy\SyliusMailPlugin\Form\Type\MailConfigurationType
+        tags:
+            - { name: form.type }
+        arguments:
+            - 'BeHappy\SyliusMailPlugin\Entity\MailConfiguration'
+            - [ 'sylius' ]
+
+    behappy.mail_plugin.block_event_listener.admin.javascript:
+        class: Sylius\Bundle\UiBundle\Block\BlockEventListener
+        arguments:
+            - '@@BeHappySyliusMailPlugin/Resources/views/admin/javascript.html.twig'
+        tags:
+            - { name: kernel.event_listener, event: sonata.block.event.sylius.admin.layout.javascripts, method: onBlockEvent }
+
+    behappy.mail_plugin.email_sender.adapter.configured:
+        parent: sylius.email_sender.adapter.abstract
+        class: BeHappy\SyliusMailPlugin\Mailer\Adapter\ConfiguredMailAdapter
+        arguments:
+            - '@mailer'
+        calls:
+            - [ 'setContainer', [ '@service_container'] ]
+
+    behappy.mail_plugin.email_subscriber.pre_send:
+        class: BeHappy\SyliusMailPlugin\Event\Subscriber\MailerSubscriber
+        arguments:
+            - '@service_container'
+        tags:
+            - { name: kernel.event_subscriber, event: sylius.email_send.pre_send }

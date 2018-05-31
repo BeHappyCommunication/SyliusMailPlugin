@@ -1,0 +1,7 @@
+sylius_resource:
+    resources:
+        behappy_mail_plugin.mail_configuration:
+            driver: doctrine/orm
+            classes:
+                model: BeHappy\SyliusMailPlugin\Entity\MailConfiguration
+                form: BeHappy\SyliusMailPlugin\Form\Type\MailConfigurationType

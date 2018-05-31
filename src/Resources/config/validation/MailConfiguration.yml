@@ -1,0 +1,8 @@
+BeHappy\SyliusMailPlugin\Entity\MailConfiguration:
+    properties:
+        senderName:
+            - NotBlank:
+                groups: ['sylius']
+        senderMail:
+            - NotBlank:
+                groups: ['sylius']

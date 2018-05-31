@@ -1,0 +1,10 @@
+imports:
+    - { resource: '@BeHappySyliusMailPlugin/Resources/config/resources.yml' }
+    - { resource: '@BeHappySyliusMailPlugin/Resources/config/grids.yml' }
+
+sylius_mailer:
+    sender_adapter: behappy.mail_plugin.email_sender.adapter.configured
+    emails:
+        test_mail:
+            subject: "{{ mail.title }}"
+            template: BeHappySyliusMailPlugin:Email:test_mail.html.twig

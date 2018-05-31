@@ -1,0 +1,17 @@
+behappy_mail_plugin_admin:
+    resource: |
+        alias: behappy_mail_plugin.mail_configuration
+        grid: behappy_mail_plugin.mail_configuration
+        templates: SyliusAdminBundle:Crud
+        except: ['show']
+        redirect: update
+        vars:
+            all:
+                templates:
+                    form: '@BeHappySyliusMailPlugin/Resources/views/admin/form.html.twig'
+    type: sylius.resource
+    prefix: /admin
+
+behappy_mail_plugin_check_mail:
+    path: /admin/mail-configurations/{id}/check
+    controller: BeHappySyliusMailPlugin:CheckMail:checkMail

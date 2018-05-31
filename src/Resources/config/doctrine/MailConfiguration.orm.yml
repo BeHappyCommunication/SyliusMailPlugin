@@ -1,0 +1,54 @@
+BeHappy\SyliusMailPlugin\Entity\MailConfiguration:
+    type: entity
+    table: behappy_mail_configuration
+    repositoryClass: BeHappy\SyliusMailPlugin\Repository\MailConfigurationRepository
+    id:
+        id:
+            type: integer
+            generator:
+                strategy: AUTO
+    fields:
+        smtpHost:
+            type: string
+            nullable: true
+        smtpPort:
+            type: integer
+            nullable: true
+        smtpUser:
+            type: string
+            nullable: true
+        smtpPassword:
+            type: string
+            nullable: true
+        dkim:
+            type: boolean
+        senderName:
+            type: string
+        senderMail:
+            type: string
+        replyToMail:
+            type: string
+            nullable: true
+        encryption:
+            type: integer
+        type:
+            type: integer
+        dkimDomain:
+            type: string
+            length: 255
+            nullable: true
+        dkimSelector:
+            type: string
+            length: 255
+            nullable: true
+        dkimKey:
+            type: text
+            nullable: true
+    manyToMany:
+        channels:
+            targetEntity: Sylius\Component\Core\Model\Channel
+            joinTable:
+                name: behappy_mail_configuration_channel
+                joinColumns:
+                    - name: mail_configuration
+                      referencedColumnName: id

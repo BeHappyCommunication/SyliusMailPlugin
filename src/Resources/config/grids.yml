@@ -1,0 +1,30 @@
+sylius_grid:
+    grids:
+        behappy_mail_plugin.mail_configuration:
+            driver:
+                name: doctrine/orm
+                options:
+                    class: BeHappy\SyliusMailPlugin\Entity\MailConfiguration
+            fields:
+                senderMail:
+                    type: string
+                    label: 'behappy_mail_plugin.ui.grid.senderMail'
+            actions:
+                main:
+                    create:
+                        type: create
+                item:
+                    update:
+                        type: update
+                    delete:
+                        type: delete
+                    checkMail:
+                        type: checkMail
+                        options:
+                            link:
+                                route: behappy_mail_plugin_check_mail
+                                parameters:
+                                    id: resource.id
+    templates:
+        action:
+            checkMail: '@BeHappySyliusMailPlugin\Resources\views\admin\button\check_mail.html.twig'

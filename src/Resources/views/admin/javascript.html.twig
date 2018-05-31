@@ -1,0 +1,38 @@
+<script>
+    (function ($) {
+        $('#behappy_mail_plugin_mail_configuration_type').on('change', function () {
+            updateSendingTypeSection();
+        });
+
+        $('#behappy_mail_plugin_mail_configuration_dkim').on('change', function () {
+            updateDkimSection();
+        });
+
+        updateVisibleFields();
+
+        function updateVisibleFields() {
+            updateSendingTypeSection();
+            updateDkimSection();
+        }
+
+        function updateSendingTypeSection() {
+            let val = parseInt($("#behappy_mail_plugin_mail_configuration_type").val());
+
+            if (val === 2) {
+                $("#behappy_mail_plugin_smtp").show();
+            } else {
+                $("#behappy_mail_plugin_smtp").hide();
+            }
+        }
+
+        function updateDkimSection() {
+            let val = $('#behappy_mail_plugin_mail_configuration_dkim').is(':checked');
+
+            if (val === true) {
+                $("#behappy_mail_plugin_dkim").show();
+            } else {
+                $("#behappy_mail_plugin_dkim").hide();
+            }
+        }
+    })(jQuery);
+</script>
