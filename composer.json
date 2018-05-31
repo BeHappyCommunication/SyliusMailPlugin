@@ -1,8 +1,28 @@
 {
-    "name": "sylius/plugin-skeleton",
+    "name": "behappy/sylius-mail-plugin",
     "type": "sylius-plugin",
-    "description": "Acme example plugin for Sylius.",
+    "description": "Configure how your emails are sent by Sylius.",
     "license": "MIT",
+    "authors": [
+        {
+            "name": "BeHappy Communication",
+            "role": "Organization",
+            "homepage": "http://www.behappycom.com",
+            "email": "projets@behappycom.com"
+        },
+        {
+            "name": "Stéphane DECOCK",
+            "role": "Developer",
+            "homepage": "http://www.behappycom.com",
+            "email": "s.decock@behappycom.com"
+        },
+        {
+            "name": "Jordan BAO",
+            "role": "Developer",
+            "homepage": "http://www.behappycom.com",
+            "email": "j.bao@behappycom.com"
+        }
+    ],
     "require": {
         "php": "^7.1",
 
