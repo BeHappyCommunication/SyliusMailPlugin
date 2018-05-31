@@ -39,7 +39,7 @@ behappy_mail_plugin:
 # That's it !
 In the BackOffice, you have now a new entry under the configuration menu where you can create your mail configuration. You can register one configuration by channel.
 
-/!\ At this moment, SMTP mode isn't tested.
+/!\ At this moment, SMTP mode hasn't been tested.
 
 You can define the user sending address, their name and a reply-to.
 
