@@ -1,0 +1,35 @@
+behappy_mail_plugin:
+    ui:
+        mail_configurations: 'Mail configuration'
+        new_mail_configuration: 'Create new mail configuration'
+        edit_mail_configuration: 'Edit mail configuration'
+        mails: 'Mail configurations'
+        check_mail: 'Test sending mail'
+        grid:
+            senderMail: 'Sending address'
+        form:
+            checkMail:
+                receiver: 'Receiving address'
+                title: 'Title'
+                content: 'Content'
+            smtpHost: 'SMTP Host'
+            smtpPort: 'SMTP Port'
+            smtpUser: 'SMTP User'
+            smtpPassword: 'SMTP Password'
+            dkim: 'Sign with DKIM ?'
+            dkim_domain: 'DKIM Domain'
+            dkim_selector: 'DKIM Selector'
+            dkim_key: 'DKIM Private key'
+            senderName: 'Sender name'
+            senderMail: 'Sending address'
+            replyToMail: 'Reply-to'
+            encryption_type: 'Encryption type'
+            encryption:
+                no_security: 'No encription'
+                ssl: 'SSL'
+                tls: 'TLS'
+            channels: 'Channels'
+            send_type: 'Sending mode'
+            type:
+                smtp: 'SMTP'
+                direct: 'Direct send'
