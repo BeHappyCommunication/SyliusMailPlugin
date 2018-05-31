@@ -1,94 +1,51 @@
-<p align="center">
-    <a href="http://sylius.org" target="_blank">
-        <img src="http://demo.sylius.org/assets/shop/img/logo.png" />
-    </a>
-</p>
-<h1 align="center">Plugin Skeleton</h1>
-<p align="center">
-    <a href="https://packagist.org/packages/sylius/plugin-skeleton" title="License">
-        <img src="https://img.shields.io/packagist/l/sylius/plugin-skeleton.svg" />
-    </a>
-    <a href="https://packagist.org/packages/sylius/plugin-skeleton" title="Version">
-        <img src="https://img.shields.io/packagist/v/sylius/plugin-skeleton.svg" />
-    </a>
-    <a href="http://travis-ci.org/Sylius/PluginSkeleton" title="Build status">
-        <img src="https://img.shields.io/travis/Sylius/PluginSkeleton/master.svg" />
-    </a>
-    <a href="https://scrutinizer-ci.com/g/Sylius/PluginSkeleton/" title="Scrutinizer">
-        <img src="https://img.shields.io/scrutinizer/g/Sylius/PluginSkeleton.svg" />
-    </a>
-</p>
+# sylius-mail-bundle
+Configure how your emails are sent by Sylius
 
-## Installation
+# Installation-procedure
+```bash
+$ composer require behappy/mail-plugin
+```
 
-1. Run `composer create-project sylius/plugin-skeleton ProjectName`.
+## Enable the plugin
 
-2. From the plugin skeleton root directory, run the following commands:
+```php
+// in app/AppKernel.php
+public function registerBundles() {
+	$bundles = array(
+		// ...
+		new BeHappy\SyliusMailPlugin\BeHappySyliusMailPlugin,
+	);
+	// ...
+}
+```
 
-    ```bash
-    $ (cd tests/Application && yarn install)
-    $ (cd tests/Application && yarn run gulp)
-    $ (cd tests/Application && bin/console assets:install web -e test)
-    
-    $ (cd tests/Application && bin/console doctrine:database:create -e test)
-    $ (cd tests/Application && bin/console doctrine:schema:create -e test)
-    ```
+```yml
+#in app/config/config.yml
+imports:
+    ...
+    - { resource: "@BeHappySyliusMailPlugin/Resources/config/app/config.yml" }
+```
 
-## Usage
+```yml
+# in routing.yml
+...
 
-### Running plugin tests
+behappy_mail_plugin:
+    resource: '@BeHappySyliusMailPlugin/Resources/config/routing.yml'
+...
+```
 
-  - PHPUnit
 
-    ```bash
-    $ bin/phpunit
-    ```
+# That's it !
+In the BackOffice, you have now a new entry under the configuration menu where you can create your mail configuration. You can register one configuration by channel.
 
-  - PHPSpec
+/!\ At this moment, SMTP mode isn't tested.
 
-    ```bash
-    $ bin/phpspec run
-    ```
+You can define the user sending address, their name and a reply-to.
 
-  - Behat (non-JS scenarios)
+DKIM Signature is also fully supported by setting the domain, the selector and the private key content.
 
-    ```bash
-    $ bin/behat --tags="~@javascript"
-    ```
+Once your configuration is created, you can send a test email to any address and check the result. (don't forget do enable delivery in dev by modifying config_dev.yml)
 
-  - Behat (JS scenarios)
- 
-    1. Download [Chromedriver](https://sites.google.com/a/chromium.org/chromedriver/)
-    
-    2. Run Selenium server with previously downloaded Chromedriver:
-    
-        ```bash
-        $ bin/selenium-server-standalone -Dwebdriver.chrome.driver=chromedriver
-        ```
-    3. Run test application's webserver on `localhost:8080`:
-    
-        ```bash
-        $ (cd tests/Application && bin/console server:run 127.0.0.1:8080 -d web -e test)
-        ```
-    
-    4. Run Behat:
-    
-        ```bash
-        $ bin/behat --tags="@javascript"
-        ```
-
-### Opening Sylius with your plugin
-
-- Using `test` environment:
-
-    ```bash
-    $ (cd tests/Application && bin/console sylius:fixtures:load -e test)
-    $ (cd tests/Application && bin/console server:run -d web -e test)
-    ```
-    
-- Using `dev` environment:
-
-    ```bash
-    $ (cd tests/Application && bin/console sylius:fixtures:load -e dev)
-    $ (cd tests/Application && bin/console server:run -d web -e dev)
-    ```
+# Feel free to contribute
+You can also ask your questions at the mail address in the composer.json mentioning this package.
