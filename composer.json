@@ -50,7 +50,7 @@
     "prefer-stable": true,
     "autoload": {
         "psr-4": {
-            "Acme\\SyliusExamplePlugin\\": "src/",
+            "BeHappy\\SyliusMailPlugin\\": "src/",
             "Tests\\Acme\\SyliusExamplePlugin\\": "tests/"
         }
     },
