@@ -35,6 +35,14 @@ behappy_mail_plugin:
 ...
 ```
 
+## Generate database
+
+Simply launch
+
+```bash
+php bin/console doctrine:schema:update --dump-sql --force
+``` 
+
 
 # That's it !
 In the BackOffice, you have now a new entry under the configuration menu where you can create your mail configuration. You can register one configuration by channel.
