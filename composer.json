@@ -1,5 +1,5 @@
 {
-    "name": "behappy/sylius-mail-plugin",
+    "name": "behappy/mail-plugin",
     "type": "sylius-plugin",
     "description": "Configure how your emails are sent by Sylius.",
     "license": "MIT",
