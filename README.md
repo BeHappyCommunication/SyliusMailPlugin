@@ -13,7 +13,7 @@ $ composer require behappy/mail-plugin
 public function registerBundles() {
 	$bundles = array(
 		// ...
-		new BeHappy\SyliusMailPlugin\BeHappySyliusMailPlugin,
+		new BeHappy\SyliusMailPlugin\BeHappySyliusMailPlugin(),
 	);
 	// ...
 }
