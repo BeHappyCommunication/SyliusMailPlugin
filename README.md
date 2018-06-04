@@ -1,4 +1,4 @@
-# sylius-mail-bundle
+# sylius-mail-plugin
 Configure how your emails are sent by Sylius
 
 # Installation-procedure
