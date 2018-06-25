@@ -1,4 +1,4 @@
-# sylius-mail-bundle
+# sylius-mail-plugin
 Configure how your emails are sent by Sylius
 
 # Installation-procedure
@@ -13,7 +13,7 @@ $ composer require behappy/mail-plugin
 public function registerBundles() {
 	$bundles = array(
 		// ...
-		new BeHappy\SyliusMailPlugin\BeHappySyliusMailPlugin,
+		new BeHappy\SyliusMailPlugin\BeHappySyliusMailPlugin(),
 	);
 	// ...
 }
@@ -57,3 +57,6 @@ Once your configuration is created, you can send a test email to any address and
 
 # Feel free to contribute
 You can also ask your questions at the mail address in the composer.json mentioning this package.
+
+# Other
+You can also check our other packages (including Sylius plugins) at https://github.com/BeHappyCommunication
