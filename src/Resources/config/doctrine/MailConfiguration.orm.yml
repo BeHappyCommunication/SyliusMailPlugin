@@ -1,5 +1,5 @@
 BeHappy\SyliusMailPlugin\Entity\MailConfiguration:
-    type: entity
+    type: mappedSuperclass
     table: behappy_mail_configuration
     repositoryClass: BeHappy\SyliusMailPlugin\Repository\MailConfigurationRepository
     id:
