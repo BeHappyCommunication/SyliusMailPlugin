@@ -10,8 +10,7 @@ behappy_mail_plugin_admin:
                 templates:
                     form: '@BeHappySyliusMailPlugin/Resources/views/admin/form.html.twig'
     type: sylius.resource
-    prefix: /admin
 
 behappy_mail_plugin_check_mail:
-    path: /admin/mail-configurations/{id}/check
+    path: /mail-configurations/{id}/check
     controller: BeHappySyliusMailPlugin:CheckMail:checkMail
